@@ -28,14 +28,19 @@ class FakeNewsList(generics.ListAPIView):
                 urlParam = "http://" + urlParam
 
             parsed_uri = urlparse(urlParam)
-            domain = parsed_uri.netloc
+            domain = parsed_uri.netloc.lower()
+            path = parsed_uri.path.lower()
             # Let's remove unnecessary crap so that the actual domain is all that's left
             while domain.count('.') > 1:
                 domain = domain.partition('.')[2]
            
+            if domain == "twitter.com" or domain == 'facebook.com':
+                pathSplit = path.split("/")
+                domain = domain + '/' + pathSplit[1]
         
             filteredSet = self.queryset.filter(site__icontains=domain)
-            if len(filteredSet) > 0 and domain != "twitter.com":
+
+            if len(filteredSet) > 0:
                 return filteredSet
             else:
                 return None
