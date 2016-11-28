@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
 # Create your views here.
-from hapiapp.models import FakeNews, FakeSite, SentimentData
+from hapifakenews.models import FakeNews, FakeSite, SentimentData
 
-from hapiapp.serializers import FakeNewsSerializer, FakeSiteSerializer, SentimentDataSerializer
+from hapifakenews.serializers import FakeNewsSerializer, FakeSiteSerializer, SentimentDataSerializer
 from rest_framework import generics
 from rest_framework.response import Response
 from urllib.parse import urlparse

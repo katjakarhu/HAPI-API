@@ -1,4 +1,4 @@
-"""hateapi URL Configuration
+"""hapi-api URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.10/topics/http/urls/
@@ -15,7 +15,7 @@ Including another URLconf
 """
 
 from django.conf.urls import url, include
-from hapiapp.views import FakeNewsList, SentimentList
+from hapifakenews.views import FakeNewsList, SentimentList
 from rest_framework import routers, serializers, viewsets
 
 #router.register(r'fakenews', FakeNewsList, base_name='asdf')

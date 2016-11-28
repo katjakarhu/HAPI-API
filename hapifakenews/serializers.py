@@ -1,4 +1,4 @@
-from hapiapp.models import FakeNews, FakeSite, SentimentData
+from hapifakenews.models import FakeNews, FakeSite, SentimentData
 from rest_framework import routers, serializers, viewsets
 
 # Serializers define the API representation.
