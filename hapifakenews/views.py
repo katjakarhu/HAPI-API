@@ -1,29 +1,13 @@
-from django.shortcuts import render
-
 # Create your views here.
-from hapifakenews.models import FakeNews, FakeSite, SentimentData
-
-from hapifakenews.serializers import FakeNewsSerializer, FakeSiteSerializer, SentimentDataSerializer
-from rest_framework import generics
-from rest_framework.response import Response
 from urllib.parse import urlparse
 
-class SentimentList(generics.ListAPIView):
-    queryset = SentimentData.objects.all()
-    serializer_class = SentimentDataSerializer
+from rest_framework import generics
+from rest_framework.response import Response
 
-    def list(self, request, *args, **kwargs):
-        query_dict = self.request.query_params
-        query_keys = query_dict.keys()
-        if len(query_keys) != 1: 
-            return None
+from hapifakenews.models import FakeSite
+from hapifakenews.serializers import FakeSiteSerializer
 
-        urlParamList = query_dict.getlist("url")
-        jsonDicts = {"response":[]}
-        jsonDicts['response'].append({"url":"url", "containsHateSpeech":""})
 
-        return Response(jsonDicts)
-        
 class FakeNewsList(generics.ListAPIView):
     # This is the fake news site data we have in the DB
     queryset = FakeSite.objects.all()

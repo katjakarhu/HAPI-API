@@ -15,7 +15,8 @@ Including another URLconf
 """
 
 from django.conf.urls import url, include
-from hapifakenews.views import FakeNewsList, SentimentList
+from hapifakenews.views import FakeNewsList
+from hapisentiment.views import SentimentList
 from rest_framework import routers, serializers, viewsets
 
 #router.register(r'fakenews', FakeNewsList, base_name='asdf')
