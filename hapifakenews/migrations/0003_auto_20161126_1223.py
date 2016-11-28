@@ -9,7 +9,7 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('hapi-fakenews', '0002_fakesite'),
+        ('hapifakenews', '0002_fakesite'),
     ]
 
     operations = [
