@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'hateapi.urls'
+ROOT_URLCONF = 'hapi-api.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'hateapi.wsgi.application'
+WSGI_APPLICATION = 'hapi-api.wsgi.application'
 
 
 # Database
