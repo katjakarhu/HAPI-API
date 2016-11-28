@@ -8,7 +8,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('hapiapp', '0001_initial'),
+        ('hapi-fakenews', '0001_initial'),
     ]
 
     operations = [
