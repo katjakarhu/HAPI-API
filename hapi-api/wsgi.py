@@ -1,5 +1,5 @@
 """
-WSGI config for hateapi project.
+WSGI config for HAPI-API project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

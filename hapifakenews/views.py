@@ -18,16 +18,12 @@ class FakeNewsList(generics.ListAPIView):
     def list(self, request, *args, **kwargs):
         # Check if the domain is classified as a fake news site in out db
         # If it is, return the data from DB, else return None
-        def amIFake(urlParam):
-            #parsed_uri = urlparse(urlParam)
-            #domain = parsed_uri.netloc
-          
-            if urlParam.startswith("http"):
-                pass
-            else:
-                urlParam = "http://" + urlParam
+        def am_i_fake(url):
 
-            parsed_uri = urlparse(urlParam)
+            if url.startswith("http") is False:
+                url = "http://" + url
+
+            parsed_uri = urlparse(url)
             domain = parsed_uri.netloc.lower()
             path = parsed_uri.path.lower()
             # Let's remove unnecessary crap so that the actual domain is all that's left
@@ -35,13 +31,13 @@ class FakeNewsList(generics.ListAPIView):
                 domain = domain.partition('.')[2]
            
             if domain == "twitter.com" or domain == 'facebook.com':
-                pathSplit = path.split("/")
-                domain = domain + '/' + pathSplit[1]
+                split_path = path.split("/")
+                domain = domain + '/' + split_path[1]
         
-            filteredSet = self.queryset.filter(site__icontains=domain)
+            matching_site_queryset = self.queryset.filter(site__icontains=domain)
 
-            if len(filteredSet) > 0:
-                return filteredSet
+            if len(matching_site_queryset) > 0:
+                return matching_site_queryset
             else:
                 return None
 
@@ -55,25 +51,24 @@ class FakeNewsList(generics.ListAPIView):
         custom_filters = []
 
         # We want to go through all the URL -parameters
-        urlParamList = query_dict.getlist("url")
+        url_param_list = query_dict.getlist("url")
 
-        jsonDicts = {"response":[]}
-        i = 0
-        for urlParam in urlParamList:
-            fakeData = amIFake(urlParam)
+        json_response = {"response":[]}
+
+        for url_param in url_param_list:
+            fake_data = am_i_fake(url_param)
                        
             # Site is not fake, woohoo!
-            if fakeData == None:
+            if fake_data is None:
                 source = ""
-                sourceUrl = ""
+                source_url = ""
                 foo = "false"
             else: # It's a fake!
                 foo = "true"
-                source = fakeData.all()[0].sourcename
-                sourceUrl = fakeData.all()[0].sourceurl
-            jsonDicts['response'].append({"url":urlParam,"sourceUrl":sourceUrl, "source":source, "isFake":foo})
-            i = i + 1
-        
-        return Response(jsonDicts)
+                source = fake_data.all()[0].sourcename
+                source_url = fake_data.all()[0].sourceurl
+            json_response['response'].append({"url":url_param,"sourceUrl":source_url, "source":source, "isFake":foo})
+
+        return Response(json_response)
 
 
