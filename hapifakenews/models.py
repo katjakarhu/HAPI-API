@@ -4,10 +4,10 @@ from django.utils import timezone
 
 class FakeSite(models.Model):
     # Fake site data
-    site = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
     url = models.CharField(max_length=255)
 
-    # Fake news = 1, etc
+    # Fake website = 1, social media = 2, etc
     type = models.IntegerField(default=1)
 
 
