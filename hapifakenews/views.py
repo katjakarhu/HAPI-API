@@ -19,7 +19,12 @@ class FakeNewsListVersion1ViewSet(FakeNewsMixin, generics.ListAPIView):
 
 
 class FakeNewsRetrieveVersion1View(FakeNewsMixin, generics.RetrieveAPIView):
-    pass
+    print("jkfldjklfjfklfjdlak!!!!!!!!!!!!!!!!")
+    print(len(FakeNewsMixin.queryset))
+    
+    def retrieve(self, request, *args, **kwargs):
+        print("jkfldjklfjfklfjdlak!!!!!!!!!!!!!!!!?????????????????????")
+        return Response()
    
 
 class FakeNewsList(generics.ListAPIView):

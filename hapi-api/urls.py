@@ -34,10 +34,11 @@ urlpatterns = [
    url(r'^admin/', include(admin.site.urls)),
      #url('^fakenews', FakeNewsList.as_view()),
  url('^fakenews/v1/$', FakeNewsListVersion1ViewSet.as_view()),
-url(r'^fakenews/(?P<url>[0-9]+)$', FakeNewsRetrieveVersion1View.as_view(), name='FakeNewsAPIView')
+url(r'^fakenews/(?P<url>\w+)/$', FakeNewsRetrieveVersion1View.as_view(), name='FakeNewsAPIView')
 
 #
 #url('^hatespeech/', SentimentList.as_view()),
 
+    
 ]    
 
