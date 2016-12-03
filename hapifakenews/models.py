@@ -9,11 +9,11 @@ class FakeSite(models.Model):
 
     # Fake website = 1, social media = 2, etc
     type = models.IntegerField(default=1)
-
-
+    
     # Source of fakeness
-    sourceurl = models.CharField(max_length=255, default='')
+    sourceurl = models.CharField(max_length=255, default= '')
     sourcename = models.CharField(max_length=255, default = '')
+    ratingatsource = models.CharField(max_length=64, default = '')
 
     # When the entry was created
     created = models.DateTimeField(default=timezone.now)
@@ -23,3 +23,4 @@ class FakeSite(models.Model):
     updated = models.DateTimeField(default=timezone.now)
 
 
+    
