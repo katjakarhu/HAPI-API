@@ -13,7 +13,7 @@ The Hapi API is built on Python3, Django and Django Rest Framework.
    python3 manage.py runsslserver
    
 
-URL check functionality can be found in with <url> as parameter: https://localhost:8000/urlcheck/v1/<url>/
+URL check functionality can be found in with an url as a parameter: https://localhost:8000/urlcheck/v1/http://www.google.com//
 
 
 Full fake site JSON listing can be found in: https://localhost:8000/fakenews/v1/
