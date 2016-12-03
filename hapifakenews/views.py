@@ -43,9 +43,7 @@ class FakeNewsUrlCheckView(FakeNewsMixin, generics.RetrieveAPIView):
         queryset = self.get_queryset()
         queryset = self.filter_queryset(queryset)
 
-
         url_param = self.kwargs['url']
-        print(url_param)
 
         filter ={}
         fake_data_queryset = am_i_fake(url_param)
