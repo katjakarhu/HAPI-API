@@ -15,7 +15,7 @@ Including another URLconf
 """
 
 from django.conf.urls import url, include
-from hapifakenews.views import FakeNewsList, FakeNewsListVersion1ViewSet, FakeNewsRetrieveVersion1View, FakeNewsUrlCheckView
+from hapifakenews.views import FakeNewsListVersion1ViewSet, FakeNewsRetrieveVersion1View, FakeNewsUrlCheckView
 from hapisentiment.views import SentimentList
 from rest_framework import routers, serializers, viewsets
 from rest_framework.routers import DefaultRouter
@@ -29,13 +29,13 @@ from django.contrib import admin
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-   #url(r'^', include(urlpatterns)),
-   url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-   url(r'^admin/', include(admin.site.urls)),
-     #url('^fakenews', FakeNewsList.as_view()),
- url('^fakenews/v1/$', FakeNewsListVersion1ViewSet.as_view(), name='fakenewssitelist'),
+    #url(r'^', include(urlpatterns)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^admin/', include(admin.site.urls)),
+    #url('^fakenews', FakeNewsList.as_view()),
+    url('^fakenews/v1/$', FakeNewsListVersion1ViewSet.as_view(), name='fakenewssitelist'),
     url(r'^fakenews/v1/(?P<pk>[0-9]+)/$', FakeNewsRetrieveVersion1View.as_view(), name='fakenewssitedetail'),
-     url('^urlcheck/v1/(?P<url>.+)/$', FakeNewsUrlCheckView.as_view(), name='fakenewsurlcheck'),
+    url('^urlcheck/v1/(?P<url>.+)/$', FakeNewsUrlCheckView.as_view(), name='fakenewsurlcheck'),
 
 #
 #url('^hatespeech/', SentimentList.as_view()),
