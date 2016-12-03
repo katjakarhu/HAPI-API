@@ -14,17 +14,18 @@ class FakeNewsMixin(object):
     queryset = FakeSite.objects.all()   
 
 
+class FakeNewsUrlCheckView(FakeNewsMixin, generics.RetrieveAPIView):
+    pass
+    
 class FakeNewsListVersion1ViewSet(FakeNewsMixin, generics.ListAPIView):
     pass
 
 
 class FakeNewsRetrieveVersion1View(FakeNewsMixin, generics.RetrieveAPIView):
-    print("jkfldjklfjfklfjdlak!!!!!!!!!!!!!!!!")
-    print(len(FakeNewsMixin.queryset))
-    
-    def retrieve(self, request, *args, **kwargs):
-        print("jkfldjklfjfklfjdlak!!!!!!!!!!!!!!!!?????????????????????")
-        return Response()
+    pass
+   # def retrieve(self, request, *args, **kwargs):
+   #     print("jkfldjklfjfklfjdlak!!!!!!!!!!!!!!!!?????????????????????")
+   #     return Response()
    
 
 class FakeNewsList(generics.ListAPIView):
