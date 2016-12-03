@@ -7,6 +7,6 @@ from hapifakenews.models import FakeSite
 class FakeSiteSerializer(serializers.Serializer):
     class Meta:
         model = FakeSite
-        fields = ('site', 'url', 'source', 'sourceurl', 'isfake', 'created', 'createdby', 'updated')
+        fields = ('name', 'url', 'sourcename', 'sourceurl', 'ratingatsource', 'created', 'createdby', 'updated')
 
 

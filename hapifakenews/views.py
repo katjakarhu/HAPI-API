@@ -2,17 +2,25 @@
 from urllib.parse import urlparse
 
 from rest_framework import generics
+from rest_framework import viewsets
 from rest_framework.response import Response
 
 from hapifakenews.models import FakeSite
 from hapifakenews.serializers import FakeSiteSerializer
 
-
-class FakeNewsListVersion1(generics.ListAPIView):
+class FakeNewsMixin(object):
     # This is the fake news site data we have in the DB
-    queryset = FakeSite.objects.all()
-
     serializer_class = FakeSiteSerializer
+    queryset = FakeSite.objects.all()   
+
+
+class FakeNewsListVersion1ViewSet(FakeNewsMixin, generics.ListAPIView):
+    pass
+
+
+class FakeNewsRetrieveVersion1View(FakeNewsMixin, generics.RetrieveAPIView):
+    pass
+   
 
 class FakeNewsList(generics.ListAPIView):
     # This is the fake news site data we have in the DB
@@ -40,7 +48,7 @@ class FakeNewsList(generics.ListAPIView):
                 split_path = path.split("/")
                 domain = domain + '/' + split_path[1]
         
-            matching_site_queryset = self.queryset.filter(site__icontains=domain)
+            matching_site_queryset = self.queryset.filter(site__icontains=url)
 
             if len(matching_site_queryset) > 0:
                 return matching_site_queryset
@@ -77,4 +85,5 @@ class FakeNewsList(generics.ListAPIView):
 
         return Response(json_response)
 
-
+    
+    

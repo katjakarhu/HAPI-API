@@ -23,4 +23,3 @@ class FakeSite(models.Model):
     updated = models.DateTimeField(default=timezone.now)
 
 
-    
