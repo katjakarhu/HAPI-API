@@ -12,4 +12,4 @@ The Hapi API is built on Python3, Django and Django Rest Framework.
 
    python3 manage.py runsslserver
    
-3. Give an URL to the API, you will get a JSON response in return, e.g. type https://localhost:8000/fakenews?url=urlhere&url=secondurl&url=thirdurl
+3. Full fake site JSON listing can be found in: https://localhost:8000/fakenews/v1/
