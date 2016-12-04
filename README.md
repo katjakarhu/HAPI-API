@@ -1,6 +1,14 @@
 # HAPI-API
 
-# Running Hapi Server
+# Run with Docker
+
+1. Instal Docker and Docker Compose
+2. Run cd hapi-api; docker-compose up
+
+Note: sets up and uses PostgreSQL instead of SQLite
+
+
+# Running Hapi Server withou Docker
 
 The Hapi API is built on Python3, Django and Django Rest Framework.
 
@@ -12,6 +20,8 @@ The Hapi API is built on Python3, Django and Django Rest Framework.
 
    python3 manage.py runsslserver
    
+
+# Accessing API via Urls
 
 URL check functionality can be found in with an url as a parameter: https://localhost:8000/urlcheck/v1/http://www.google.com//
 
