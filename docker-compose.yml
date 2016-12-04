@@ -1,19 +1,22 @@
  version: '2'
  services:
+
+   db:
+     image: postgres
+
    initdb:
      build: .
      command: python manage.py makemigrations
-
+     depends_on:
+       - db
+       
    datamigration:
      build: .
      command: python manage.py migrate
      depends_on:
        - initdb
      
-   db:
-     image: postgres
-     depends_on:
-       - datamigration
+
 
    web:
      build: .
