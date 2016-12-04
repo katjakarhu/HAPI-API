@@ -8,7 +8,7 @@
 Note: sets up and uses PostgreSQL instead of SQLite
 
 
-# Running Hapi Server withou Docker
+# Running Hapi Server without Docker
 
 The Hapi API is built on Python3, Django and Django Rest Framework.
 
