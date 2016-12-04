@@ -10,6 +10,8 @@ Note: sets up and uses PostgreSQL instead of SQLite
 
 # Running Hapi Server without Docker
 
+NOTE: CHANGE DATABASE ENGINE TO SQLITE in settings.py. Comment out postgres and uncomment sqlite stuff
+
 The Hapi API is built on Python3, Django and Django Rest Framework.
 
 1. Install requirements: 
