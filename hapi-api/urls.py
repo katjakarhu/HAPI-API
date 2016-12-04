@@ -19,7 +19,7 @@ from hapifakenews.views import FakeNewsListVersion1ViewSet, FakeNewsRetrieveVers
 from hapisentiment.views import SentimentList
 from rest_framework import routers, serializers, viewsets
 from rest_framework.routers import DefaultRouter
-from django.contrib import admin
+#from django.contrib import admin
 
 #router.register(r'fakenews', FakeNewsList, base_name='asdf')
 #router = DefaultRouter()
@@ -30,8 +30,8 @@ from django.contrib import admin
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     #url(r'^', include(urlpatterns)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^admin/', include(admin.site.urls)),
+    #url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    #url(r'^admin/', include(admin.site.urls)),
     #url('^fakenews', FakeNewsList.as_view()),
     url('^fakenews/v1/$', FakeNewsListVersion1ViewSet.as_view(), name='fakenewssitelist'),
     url(r'^fakenews/v1/(?P<pk>[0-9]+)/$', FakeNewsRetrieveVersion1View.as_view(), name='fakenewssitedetail'),

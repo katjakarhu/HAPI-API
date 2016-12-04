@@ -3,7 +3,9 @@
 
    db:
      image: postgres
-
+     environment:
+       POSTGRES_USER: docker
+       POSTGRES_PASSWORD: docker
    initdb:
      build: .
      command: python manage.py makemigrations
