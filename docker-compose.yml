@@ -1,0 +1,26 @@
+ version: '2'
+ services:
+   initdb:
+     build: .
+     command: python manage.py makemigrations
+
+   datamigration:
+     build: .
+     command: python manage.py migrate
+     depends_on:
+       - initdb
+     
+   db:
+     image: postgres
+     depends_on:
+       - datamigration
+
+   web:
+     build: .
+     command: python manage.py runsslserver 0.0.0.0:8000
+     volumes:
+       - .:/code
+     ports:
+       - "8000:8000"
+     depends_on:
+       - db

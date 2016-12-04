@@ -1,3 +1,4 @@
 Django==1.10
+psycopg2
 djangorestframework==3.5
 django-sslserver==0.19
