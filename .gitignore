@@ -60,3 +60,7 @@ VisualStudio.gitignore
 
 # IDE things
 .idea/
+
+#Emacs
+*~
+\#*\#
