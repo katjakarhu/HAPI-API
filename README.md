@@ -3,7 +3,15 @@
 # Run with Docker
 
 1. Instal Docker and Docker Compose
-2. Run cd hapi-api; docker-compose up
+2. Run 
+
+```
+docker-compose build
+docker-compose up
+```
+3. Result: postgres and web server started at localhost
+
+If something goes wrong, remove Docker containers with `docker-compose rm` and start again.
 
 Note: sets up and uses PostgreSQL instead of SQLite
 
