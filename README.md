@@ -9,7 +9,8 @@
 docker-compose build
 docker-compose up
 ```
-3. Result: postgres and web server started at localhost
+
+Result: postgres and web server started at localhost
 
 If something goes wrong, remove Docker containers with 
 ```
