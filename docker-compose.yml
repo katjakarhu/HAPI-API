@@ -1,19 +1,23 @@
  version: '2'
  services:
 
+  web:
+     build: ./
+     command: sh docker-command.sh
+     volumes:
+       - .:/code
+     ports:
+       - 8000:8000
+     depends_on:
+       - db
+    
   db:
      image: postgres
      environment:
        POSTGRES_USER: docker
        POSTGRES_PASSWORD: docker
-
-  web:
-     build: .
-     command: python manage.py runsslserver 0.0.0.0:8000
-     volumes:
-       - .:/code
      ports:
-       - "8000:8000"
-     depends_on:
-       - db
-     entrypoint: ./wait-for-it.sh db:5432
+       - 5432:5432
+     expose:
+       - 5432
+
