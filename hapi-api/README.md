@@ -32,3 +32,20 @@ Full fake site JSON listing can be found in: https://localhost:8000/fakenews/v1/
 
 
 Detail view per site (parameter is id-number, in the example it's 1): ttps://localhost:8000/fakenews/v1/1/
+
+JSON example:
+
+```
+    {
+        "id": 1,
+        "name": "100PercentFedUp.com",
+        "url": "http://100percentfedup.com/",
+        "source_name": "Melissa Zimdars / DailyDot",
+        "source_url": "http://www.dailydot.com/layer8/fake-news-sites-list-facebook/",
+        "source_extra_info": "2, 3",
+        "comment_from_api": "Sites where category >= 2 and URL available",
+        "created": "2016-12-03T10:47:00Z",
+        "created_by": 0,
+        "updated": "2016-12-03T10:47:00Z"
+    },
+    ```
