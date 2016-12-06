@@ -23,13 +23,17 @@ NOTE: CHANGE DATABASE ENGINE TO SQLITE in settings.py. Comment out postgres and 
 The Hapi API is built on Python3, Django and Django Rest Framework.
 
 1. Install requirements: 
-
+```
    pip install -r hateapi/requirements.txt
+```
 
-2. Run server (it will start at https://localhost:8000 by default):
+2. Run migrations and start server (it will start at https://localhost:8000 by default):
 
+```
+   python3 manage.py migrate
    python3 manage.py runsslserver
-   
+```
+
 
 # Accessing API via Urls
 
