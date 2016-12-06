@@ -11,6 +11,14 @@ docker-compose up
 ```
 3. Result: postgres and web server started at localhost
 
+If something goes wrong, remove Docker containers with 
+```
+   docker-compose kill *
+   docker-compose rm
+```
+
+and GOTO 2.
+
 If something goes wrong, remove Docker containers with `docker-compose rm` and start again.
 
 Note: sets up and uses PostgreSQL instead of SQLite
