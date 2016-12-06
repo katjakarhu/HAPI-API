@@ -1,26 +1,13 @@
  version: '2'
  services:
 
-   db:
+  db:
      image: postgres
      environment:
        POSTGRES_USER: docker
        POSTGRES_PASSWORD: docker
-   initdb:
-     build: .
-     command: python manage.py makemigrations
-     depends_on:
-       - db
-       
-   datamigration:
-     build: .
-     command: python manage.py migrate
-     depends_on:
-       - initdb
-     
 
-
-   web:
+  web:
      build: .
      command: python manage.py runsslserver 0.0.0.0:8000
      volumes:
@@ -29,3 +16,4 @@
        - "8000:8000"
      depends_on:
        - db
+     entrypoint: ./wait-for-it.sh db:5432
