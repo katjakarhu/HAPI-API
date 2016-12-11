@@ -12,6 +12,14 @@ docker-compose up
 
 Result: postgres and web server started at localhost
 
+If you want to run manage.py, login to docker container:
+
+```
+ docker ps # get container name from the output, and set as a parameter to next container
+ docker exec -t -i <your_container> bash
+```
+
+
 If something goes wrong, remove Docker containers with 
 ```
    docker-compose kill *
