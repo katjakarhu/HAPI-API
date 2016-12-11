@@ -90,6 +90,15 @@ Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
 More details here: http://www.django-rest-framework.org/api-guide/authentication/#tokenauthentication
 
 
+# API Throttling
+
+Anonymous users can make 100 requests per day.
+
+Authenticated users can make 10000 requests per day. 
+
+These are set in `settings.py` -> `DEFAULT_THROTTLE_RATES`
+
+
 # Accessing API via Urls
 
 URL check functionality can be found in with an url as a parameter: https://localhost:8000/urlcheck/v1/http://www.google.com//
