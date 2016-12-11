@@ -6,8 +6,8 @@ class FakeSite(models.Model):
     # Fake site data
     name = models.CharField(max_length=255)
     url = models.CharField(max_length=255)
-
-    # Fake website = 1, social media = 2, etc
+    language = models.CharField(max_length=2, default='en')
+    # 
     type = models.IntegerField(default=1)
     
     # Source of fakeness
@@ -17,6 +17,7 @@ class FakeSite(models.Model):
 
     comment_from_api = models.CharField(max_length=512)
     
+
     # When the entry was created
     created = models.DateTimeField(default=timezone.now)
     created_by = models.IntegerField(default=1)
