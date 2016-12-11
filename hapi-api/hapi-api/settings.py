@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     # third party
     'rest_framework', # Django Rest Framework
+    'rest_framework.authtoken', # REST authentication token
     'sslserver', # Django SSLServer
 
 
@@ -150,7 +151,7 @@ REST_FRAMEWORK = {
     ],
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ),
     
@@ -165,7 +166,7 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_THROTTLE_RATES': {
         'anon': '100/day',
-        'user': '1000/day'
+        'user': '10000/day'
     }
 }
 
