@@ -41,7 +41,7 @@ The Hapi API is built on Python3, Django and Django Rest Framework.
 
 1. Install requirements: 
 ```
-   pip install -r hateapi/requirements.txt
+   pip install -r hapi-api/requirements.txt
 ```
 
 2. Run migrations and start server (it will start at https://localhost:8000 by default):
