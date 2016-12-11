@@ -22,6 +22,7 @@ echo "Collect static files"
 
 # Apply database migrations
 echo "Apply database migrations"
+python hapi-api/manage.py makemigrations
 python hapi-api/manage.py migrate
 
 # Start server
