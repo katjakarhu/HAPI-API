@@ -51,6 +51,44 @@ The Hapi API is built on Python3, Django and Django Rest Framework.
    python3 manage.py runsslserver
 ```
 
+# Admin site
+
+Create admin user:
+
+```
+python manage.py createsuperuser
+```
+
+Login with created user at https://localhost:8000/admin/
+
+You can edit site data, create users and user tokens for user authentication.
+
+
+# User authentication: getting token
+
+We use token authentication: http://www.django-rest-framework.org/api-guide/authentication/#tokenauthentication
+
+See Admin site -part for creating users. 
+
+User can get the token at https://localhost:8000/api-token-auth/ by username and password.
+
+From the instruction link above: "The obtain_auth_token view will return a JSON response when valid username and password fields are POSTed to the view using form data or JSON:"
+
+```
+{ 'token' : '9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b' }
+```
+
+# User authentication: how to implement on client side
+
+
+For clients to authenticate, the token key should be included in the Authorization HTTP header. The key should be prefixed by the string literal "Token", with whitespace separating the two strings. For example:
+
+```
+Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
+```
+
+More details here: http://www.django-rest-framework.org/api-guide/authentication/#tokenauthentication
+
 
 # Accessing API via Urls
 
