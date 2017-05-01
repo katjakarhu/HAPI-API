@@ -1,6 +1,6 @@
 # HAPI-API
 
-HAPI-API provides a listing of fake news (as in propaganda / disinform with the intent ofd causing harm) sites.
+HAPI-API provides a listing of fake news (as in propaganda / disinformation with the intent of causing harm) sites.
 
 
 # Run with Docker
